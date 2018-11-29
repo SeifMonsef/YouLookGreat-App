@@ -18,7 +18,7 @@ import reviews from './components/Reviews/reducer';
 import search from './views/Search/reducer';
 
 
-// load config variables
+//loading the config variables
 config.set(window.INITIAL_CONFIG, { freeze: false });
 
 const rootPersistConfig = {
