@@ -13,13 +13,3 @@ export const receiveVariations = variations => ({
   variations,
 });
 
-export const fetchVariations = productId => (dispatch) => {
-  dispatch(requestVariations());
-
-  return fetch(config.get('API_VARIATIONS_URL') + productId)
-    .then(response => response.json())
-    .then(json => dispatch(receiveVariations(json)))
-    .catch(() => {
-      dispatch(receiveVariations([]));
-    });
-};
