@@ -37,3 +37,7 @@ const isFetching = (state = 0, action) => {
 export const getVariations = state => state.items;
 export const getVariationsFetching = state => state.isFetching;
 
+export default combineReducers({
+  items,
+  isFetching,
+});
