@@ -6,6 +6,9 @@ import _ from 'lodash';
 import { Loader, Container } from 'semantic-ui-react';
 import { fetchProducts } from './actions';
 import { getProductsFetching, getProducts, productPropType, getProductsHasMore } from './reducer';
+import ProductDetails from '../../components/ProductDetails';
+import { closeSearch } from '../../components/Bar/actions';
+import { isSearchVisible } from '../../components/Bar/reducer';
 
 class Products extends Component {
   constructor(props) {
@@ -82,4 +85,32 @@ class Products extends Component {
   }
 }
 
+Products.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  loading: PropTypes.number.isRequired,
+  products: PropTypes.arrayOf(productPropType).isRequired,
+  hasMore: PropTypes.bool.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      categId: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  searchVisible: PropTypes.bool.isRequired,
+  closeSearch: PropTypes.func.isRequired,
+};
 
+const mapStateToProps = (state, props) => ({
+  loading: getProductsFetching(state.products),
+  products: getProducts(state.products, props.match.params.categId),
+  hasMore: getProductsHasMore(state.products),
+  searchVisible: isSearchVisible(state.navbar),
+});
+
+function mapDispatchToProps(dispatch) {
+  return Object.assign({ dispatch }, bindActionCreators({ fetchProducts, closeSearch }, dispatch));
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Products);
