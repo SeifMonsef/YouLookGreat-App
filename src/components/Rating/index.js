@@ -40,3 +40,4 @@ Rating.defaultProps = {
   ratingCount: null,
 };
 
+export default Rating;
