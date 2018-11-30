@@ -101,3 +101,7 @@ const mapStateToProps = state => ({
   variations: getVariations(state.variations),
 });
 
+function mapDispatchToProps(dispatch) {
+  return Object.assign({ dispatch }, bindActionCreators({ fetchVariations }, dispatch));
+}
+
