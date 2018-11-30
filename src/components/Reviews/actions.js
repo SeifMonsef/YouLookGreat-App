@@ -15,13 +15,3 @@ export const receiveReviews = (reviews, productId) => ({
   productId,
 });
 
-export const fetchReviews = productId => (dispatch) => {
-  dispatch(requestReviews());
-
-  return fetch(config.get('API_REVIEWS_URL' + productId))
-    .then(response => response.json())
-    .then(json => dispatch(receiveReviews(json, productId)))
-    .catch(() => {
-      dispatch(receiveReviews([], productId));
-    });
-};
