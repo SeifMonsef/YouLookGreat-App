@@ -96,3 +96,8 @@ Variations.propTypes = {
   sendSelections: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => ({
+  loading: getVariationsFetching(state.variations),
+  variations: getVariations(state.variations),
+});
+
