@@ -18,3 +18,4 @@ export const receiveReviews = (reviews, productId) => ({
 export const fetchReviews = productId => (dispatch) => {
   dispatch(requestReviews());
 
+  return fetch(config.get('API_REVIEWS_URL' + productId))
