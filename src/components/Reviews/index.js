@@ -46,3 +46,9 @@ Reviews.propTypes = {
   reviews: PropTypes.arrayOf(reviewPropType).isRequired,
 };
 
+const mapStateToProps = (state, props) => ({
+  loading: getReviewsFetching(state.reviews),
+  reviews: getReviews(state.reviews, props.productId),
+});
+
+
