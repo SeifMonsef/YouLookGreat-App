@@ -46,13 +46,3 @@ Reviews.propTypes = {
   reviews: PropTypes.arrayOf(reviewPropType).isRequired,
 };
 
-const mapStateToProps = (state, props) => ({
-  loading: getReviewsFetching(state.reviews),
-  reviews: getReviews(state.reviews, props.productId),
-});
-
-function mapDispatchToProps(dispatch) {
-  return Object.assign({ dispatch }, bindActionCreators({ fetchReviews }, dispatch));
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Reviews);
