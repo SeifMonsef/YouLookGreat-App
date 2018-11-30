@@ -16,5 +16,10 @@ class Review extends Component {
   }
 }
 
+Review.propTypes = {
+  rating: PropTypes.number.isRequired,
+  content: PropTypes.string.isRequired,
+  reviewer: PropTypes.string.isRequired,
+};
 
 export default Review;
