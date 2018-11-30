@@ -70,3 +70,31 @@ class Categories extends Component {
 }
 
 
+Categories.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  loading: PropTypes.number.isRequired,
+  categories: PropTypes.arrayOf(categoryPropType).isRequired,
+  hasMore: PropTypes.bool.isRequired,
+  searchVisible: PropTypes.bool.isRequired,
+  closeSearch: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  loading: getCategoriesFetching(state.categories),
+  categories: getCategories(state.categories),
+  hasMore: getCategoriesHasMore(state.categories),
+  searchVisible: isSearchVisible(state.navbar),
+
+});
+
+function mapDispatchToProps(dispatch) {
+  return Object.assign(
+    { dispatch },
+    bindActionCreators({ fetchCategories, closeSearch }, dispatch),
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Categories);
