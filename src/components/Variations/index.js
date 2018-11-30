@@ -105,3 +105,4 @@ function mapDispatchToProps(dispatch) {
   return Object.assign({ dispatch }, bindActionCreators({ fetchVariations }, dispatch));
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(Variations);
