@@ -15,3 +15,6 @@ export const receiveReviews = (reviews, productId) => ({
   productId,
 });
 
+export const fetchReviews = productId => (dispatch) => {
+  dispatch(requestReviews());
+
