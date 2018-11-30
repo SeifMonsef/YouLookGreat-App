@@ -36,8 +36,4 @@ Rating.propTypes = {
   ratingCount: PropTypes.number,
 };
 
-Rating.defaultProps = {
-  ratingCount: null,
-};
 
-export default Rating;
