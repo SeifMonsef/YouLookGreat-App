@@ -51,4 +51,8 @@ const mapStateToProps = (state, props) => ({
   reviews: getReviews(state.reviews, props.productId),
 });
 
+function mapDispatchToProps(dispatch) {
+  return Object.assign({ dispatch }, bindActionCreators({ fetchReviews }, dispatch));
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(Reviews);
