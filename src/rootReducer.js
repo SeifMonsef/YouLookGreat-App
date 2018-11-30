@@ -9,7 +9,12 @@ import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 
 
-
+import navbar from './components/Bar/reducer';
+import products from './views/ProductList/reducer';
+import categories from './views/Categories/reducer';
+import variations from './components/Variations/reducer';
+import cart from './views/Cart/reducer';
+import reviews from './components/Reviews/reducer';
 import search from './views/Search/reducer';
 
 
@@ -20,6 +25,13 @@ const rootPersistConfig = {
   key: 'root',
   storage,
   blacklist: [
+    'navbar',
+    'toastr',
+    'categories',
+    'products',
+    'reviews',
+    'variations',
+    'cart',
     'search',
   ],
   // debug: true,
