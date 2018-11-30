@@ -37,3 +37,8 @@ const isFetching = (state = 0, action) => {
       return state;
   }
 };
+
+export const getReviews = (state, productId) =>
+  state.items.filter(obj => obj.product === productId);
+export const getReviewsFetching = state => state.isFetching;
+
