@@ -52,3 +52,31 @@ class Product extends Component {
   }
 }
 
+Product.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  loading: PropTypes.number.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      productId: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  products: PropTypes.arrayOf(productPropType).isRequired,
+  searchVisible: PropTypes.bool.isRequired,
+  closeSearch: PropTypes.func.isRequired,
+
+};
+
+const mapStateToProps = state => ({
+  loading: getProductsFetching(state.products),
+  products: getProducts(state.products),
+  searchVisible: isSearchVisible(state.navbar),
+});
+
+function mapDispatchToProps(dispatch) {
+  return Object.assign({ dispatch }, bindActionCreators({ fetchProducts, closeSearch }, dispatch));
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Product);
