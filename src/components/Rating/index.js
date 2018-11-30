@@ -36,4 +36,7 @@ Rating.propTypes = {
   ratingCount: PropTypes.number,
 };
 
+Rating.defaultProps = {
+  ratingCount: null,
+};
 
