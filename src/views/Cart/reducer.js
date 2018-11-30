@@ -80,3 +80,9 @@ const items = (state = [], action) => {
   }
 };
 
+export const getCart = state => state.items;
+
+export default combineReducers({
+  items,
+});
+
