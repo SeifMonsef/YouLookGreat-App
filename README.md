@@ -1,7 +1,7 @@
 # YouLookGreat-App
 # Welcome To Your Fashion Store !
 ## 1. Introduction
-We transformed the popular Tethr UI Kit into ready-to-use components for the fastest growing JS framework. Tethr UI Kit is developed in React + Semantic UI and has ... screens and ... components that you can use out of the box.
+We are trying to have the first fashion online store in Egypt that sells 100% Egyptian products.
 
 Technologies used:
   - React 
