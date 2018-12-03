@@ -50,5 +50,5 @@ You will also see any lint errors in the console.
 ## 6. DockerFile
 Contains the node version. Creates a directory and copies the dependencies of our manifest files [ package.json, package-lock.json] then runs the program and exposing it to port 3000 on our virtual machine so we can run our server.
 
-##7.Docker-Compose
+## 7.Docker-Compose
 Contains the docker version which is " 2.1", in addition, to setting our services to read the dockerfile and to have our backing service which is node while screening the docker port to port 3000.
